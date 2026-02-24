@@ -1,0 +1,30 @@
+{
+    "name": "@takerofnotes/plugin-sdk",
+    "version": "0.1.0",
+    "description": "SDK to create a storage plugin for Taker of Notes",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "scripts": {
+        "build": "tsup src/index.ts --format esm --dts",
+        "dev": "tsup src/index.ts --format esm --dts --watch"
+    },
+    "author": "nicwands",
+    "license": "ISC",
+    "devDependencies": {
+        "tsup": "^8.5.1",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "zod": "^4.3.6"
+    }
+}

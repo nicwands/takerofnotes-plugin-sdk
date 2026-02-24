@@ -1,0 +1,17 @@
+export interface ConfigField {
+    key: string
+    label: string
+    type: 'text' | 'password' | 'directory' | 'number' | 'boolean'
+    default: 'text' | 'password' | 'directory' | 'number' | 'boolean'
+    required?: boolean
+}
+
+export interface NotesPlugin {
+    id: string
+    name: string
+    description: string
+    version: string
+    apiVersion: string
+    configSchema: ConfigField[]
+    createAdapter(config: any): any
+}
