@@ -2,7 +2,7 @@ export interface ConfigField {
     key: string
     label: string
     type: 'text' | 'password' | 'directory' | 'number' | 'boolean'
-    default: 'text' | 'password' | 'directory' | 'number' | 'boolean'
+    default: string
     required?: boolean
 }
 
