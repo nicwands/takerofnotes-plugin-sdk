@@ -6,7 +6,7 @@ const ConfigFieldSchema = z.object({
     key: z.string(),
     label: z.string(),
     type: z.enum(['text', 'password', 'directory', 'number', 'boolean']),
-    default: z.enum(['text', 'password', 'directory', 'number', 'boolean']),
+    default: z.string(),
     required: z.boolean().optional(),
 })
 
