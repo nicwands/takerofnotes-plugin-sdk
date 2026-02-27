@@ -15,3 +15,5 @@ export interface NotesPlugin {
     configSchema: ConfigField[]
     createAdapter(config: any): any
 }
+
+export type { BaseNotesAdapter } from './BaseNotesAdapter'

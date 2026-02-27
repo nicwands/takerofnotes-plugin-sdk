@@ -1,4 +1,6 @@
 export { BaseNotesAdapter } from './BaseNotesAdapter'
 export { definePlugin } from './definePlugin'
 export { validatePlugin, SUPPORTED_API_VERSION } from './validatePlugin'
+export { runPluginTests, createTestNote } from './testPlugin'
 export type { NotesPlugin, ConfigField } from './types'
+export type { TestNote, TestPluginOptions } from './testPlugin'
