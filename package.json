@@ -1,6 +1,6 @@
 {
     "name": "@takerofnotes/plugin-sdk",
-    "version": "0.2.0",
+    "version": "0.1.0",
     "description": "SDK to create a storage plugin for Taker of Notes",
     "type": "module",
     "main": "dist/index.js",
