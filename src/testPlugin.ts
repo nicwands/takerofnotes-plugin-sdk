@@ -1,4 +1,4 @@
-import { validatePlugin } from './validatePlugin'
+import { SUPPORTED_API_VERSION, validatePlugin } from './validatePlugin'
 
 export interface TestNote {
     id: string
@@ -39,7 +39,7 @@ export const runPluginTests = ({ plugin, adapter }: TestPluginOptions) => {
                 }
             })
             it('should have correct apiVersion', () => {
-                equal(plugin.apiVersion, '0.1.0')
+                equal(plugin.apiVersion, SUPPORTED_API_VERSION)
             })
         },
 
