@@ -2,18 +2,15 @@ import { validatePlugin } from './validatePlugin'
 
 export interface TestNote {
     id: string
-    title: string
-    content: string
-    createdAt: string
-    updatedAt: string
+    data: string
 }
 
-export const createTestNote = (id: string = 'test-note-1'): TestNote => ({
+export const createTestNote = (
+    id: string = 'test-note-1',
+    data?: string,
+): TestNote => ({
     id,
-    title: 'Test Note',
-    content: 'Test content',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    data: data || 'test-data',
 })
 
 export interface TestPluginOptions {
@@ -82,19 +79,19 @@ export const runPluginTests = ({ plugin, adapter }: TestPluginOptions) => {
             it('should update a note without errors', async () => {
                 const note = createTestNote('test-update-note')
                 await adapter.create(note)
-                const updatedNote = { ...note, content: 'Updated content' }
+                const updatedNote = { ...note, data: 'Updated data' }
                 await adapter.update(updatedNote)
             })
 
             it('updated note should reflect changes', async () => {
                 const note = createTestNote('test-update-note-2')
                 await adapter.create(note)
-                const updatedNote = { ...note, title: 'Updated Title' }
+                const updatedNote = { ...note, data: 'Updated data v2' }
                 await adapter.update(updatedNote)
                 const notes = await adapter.getAll()
                 const found = notes.find((n: any) => n.id === note.id)
-                if (found?.title !== 'Updated Title') {
-                    throw new Error('Updated note title does not match')
+                if (found?.data !== 'Updated data v2') {
+                    throw new Error('Updated note data does not match')
                 }
             })
         },
@@ -128,14 +125,14 @@ export const runPluginTests = ({ plugin, adapter }: TestPluginOptions) => {
                     throw new Error('Created note not found')
                 }
 
-                const updatedNote = { ...note, title: 'CRUD update' }
+                const updatedNote = { ...note, data: 'CRUD update' }
                 await adapter.update(updatedNote)
                 notes = await adapter.getAll()
                 if (
-                    notes.find((n: any) => n.id === note.id)?.title !==
+                    notes.find((n: any) => n.id === note.id)?.data !==
                     'CRUD update'
                 ) {
-                    throw new Error('Updated note content does not match')
+                    throw new Error('Updated note data does not match')
                 }
 
                 await adapter.delete(note.id)
