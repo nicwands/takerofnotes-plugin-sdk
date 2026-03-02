@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SUPPORTED_API_VERSION = '0.3.0'
+export const SUPPORTED_API_VERSION = '0.3.1'
 
 const ConfigFieldSchema = z.object({
     key: z.string(),
